@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Rice Recipes</title>
     <link href="../css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Quantico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Oswald&family=Quantico&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="title">
@@ -23,11 +23,11 @@
         </p>
         <h3>Water Calculator</h3>
         <p id="caliCalcInstruct">This recipe typically uses a 5oz to 8oz ratio of  rice to water, but a 1:2 ratio can be used to produce a softer texture. Use the calculator below to help determine how much water to use.</p>
-        <div>
+        <div id="softRiceCheckbox">
         <input type="checkbox" id="softRice">
         <label for="softRice">I'd like softer rice.</label>
         </div>
-        <form>
+        <form id="caliInputBoxes">
         <div class="group">
           <label for="ozCaliRice">Ounces of Rice</label> <br>
           <input type="text" id="ozCaliRice">
@@ -40,11 +40,11 @@
     </div>
     <div id="whiteRecipe">
       <h2>Making White Rice</h2>
-        <p>Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil. Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.
+        <p id="whiteRiceInstruct">Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil. Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.
         </p>
         <h3>Water Calculator</h3>
         <p id="whiteCalcInstruct">This recipe uses a 1:2 ratio of rice to water. Use the calculator below to help determine how much water to use.</p>
-        <form>
+        <form id="whiteInputBoxes">
         <div class="group">
           <label for="ozWhiteRice">Ounces of Rice</label> <br>
           <input type="text" id="ozWhiteRice">
