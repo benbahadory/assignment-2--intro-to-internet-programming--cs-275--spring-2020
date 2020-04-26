@@ -9,3 +9,118 @@
 .group {
   display: inline-block;
 }
+
+body{
+   background-color: #542e0d;
+   color: #dfd9a7;
+   font-family: 'Oswald', sans-serif;
+   margin-left: 1.5em;
+   margin-right: 1.5em;
+}
+
+#recipeSelect {
+  text-align: center;
+}
+
+#title h1 {
+  text-align: center;
+  font-size: 5.5em;
+  font-weight: normal;
+  font-family: 'Cookie', cursive;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+#caliRecipe h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 3em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#alDente {
+  font-size: 1.5em;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+#alDenteInstruct{
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+#softer {
+  font-size: 1.5em;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+#softInstruct {
+  margin-top: 6px;
+  margin-bottom: 5px;
+}
+
+#caliRecipe h3 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: normal;
+  font-family: 'Quantico', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 16px;
+}
+
+#softRiceCheckbox{
+  text-align: center;
+}
+
+#ozCaliRice {
+  text-align: center;
+}
+
+#ozCaliWater {
+  text-align: center;
+}
+
+#caliInputBoxes {
+  text-align: center;
+}
+
+#whiteRecipe h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 3em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#whiteRiceInstruct {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 5px;
+}
+
+#whiteRecipe h3 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: normal;
+  font-family: 'Quantico', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 16px;
+}
+
+#whiteCalcInstruct {
+  text-align: center;
+}
+
+#ozWhiteRice {
+  text-align:center;
+}
+
+#ozWhiteWater {
+  text-align: center;
+}
+
+#whiteInputBoxes {
+  text-align: center;
+}
