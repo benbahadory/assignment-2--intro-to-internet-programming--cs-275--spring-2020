@@ -10,12 +10,12 @@
   display: inline-block;
 }
 
-body{
-   background-color: #542e0d;
-   color: #dfd9a7;
-   font-family: 'Oswald', sans-serif;
-   margin-left: 1.5em;
-   margin-right: 1.5em;
+body {
+  background-color: #542e0d;
+  color: #dfd9a7;
+  font-family: Oswald, sans-serif;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
 
 #recipeSelect {
@@ -25,15 +25,15 @@ body{
 #title h1 {
   text-align: center;
   font-size: 5.5em;
-  font-weight: normal;
-  font-family: 'Cookie', cursive;
+  font-weight: 400;
+  font-family: Cookie, cursive;
   margin-bottom: 25px;
   margin-top: 15px;
 }
 
 #caliRecipe h2 {
   text-align: center;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 3em;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -45,7 +45,7 @@ body{
   margin-bottom: 6px;
 }
 
-#alDenteInstruct{
+#alDenteInstruct {
   margin-top: 6px;
   margin-bottom: 10px;
 }
@@ -64,13 +64,13 @@ body{
 #caliRecipe h3 {
   text-align: center;
   font-size: 2.5em;
-  font-weight: normal;
-  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
+  font-family: Quantico, sans-serif;
   margin-top: 5px;
   margin-bottom: 16px;
 }
 
-#softRiceCheckbox{
+#softRiceCheckbox {
   text-align: center;
 }
 
@@ -88,7 +88,7 @@ body{
 
 #whiteRecipe h2 {
   text-align: center;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 3em;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -103,8 +103,8 @@ body{
 #whiteRecipe h3 {
   text-align: center;
   font-size: 2.5em;
-  font-weight: normal;
-  font-family: 'Quantico', sans-serif;
+  font-weight: 400;
+  font-family: Quantico, sans-serif;
   margin-top: 5px;
   margin-bottom: 16px;
 }
@@ -114,7 +114,7 @@ body{
 }
 
 #ozWhiteRice {
-  text-align:center;
+  text-align: center;
 }
 
 #ozWhiteWater {
