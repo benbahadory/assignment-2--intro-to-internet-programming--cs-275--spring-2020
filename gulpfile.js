@@ -45,86 +45,58 @@ async function allBrowsers () {
 
 let validateHTML = () => {
     return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
+        `html/*.html`,
+        `html/**/*.html`])
         .pipe(htmlValidator());
 };
 
 let compressHTML = () => {
-    return src([`dev/html/*.html`,`dev/html/**/*.html`])
+    return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod/html`));
 };
 
 let lintCSS = () => {
-    return src(`dev/styles/*.css`)
+    return src(`css/*.css`)
         .pipe(cssLinter({
             failAfterError: true,
             reporters: [
                 {formatter: `verbose`, console: true}
             ]
-        }));
+        }))
+        .pipe(dest(`temp/css`));
 };
 
 let compressCSS = () => {
-    return src(`dev/styles/main.css`)
+    return src(`css/*.css`)
         .pipe(cssCompressor())
-        .pipe(dest(`prod/styles`));
+        .pipe(dest(`prod/css`));
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
-        .pipe(dest(`temp/scripts`));
+        .pipe(dest(`temp/js`));
 };
 
 let transpileJSForProd = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
+        .pipe(dest(`prod/js`));
 
 };
 
 let lintJS = () => {
-    return src(`dev/scripts/*.js`)
-        .pipe(jsLinter({
-            parserOptions: {
-                ecmaVersion: 2017,
-                sourceType: `module`
-            },
-            rules: {
-                indent: [2, 4, {SwitchCase: 1}],
-                quotes: [2, `backtick`],
-                semi: [2, `always`],
-                'linebreak-style': [2, `unix`],
-                'max-len': [1, 85, 4]
-            },
-            env: {
-                es6: true,
-                node: true,
-                browser: true
-            },
-            extends: `eslint:recommended`
-        }))
+    return src(`js/*.js`)
+        .pipe(jsLinter())
         .pipe(jsLinter.formatEach(`compact`, process.stderr));
 };
 
-let copyUnprocessedAssetsForProd = () => {
-    return src([
-        `dev/*.*`,       // Source all files,
-        `dev/**`,        // and all folders,
-        `!dev/html/`,    // but not the HTML folder
-        `!dev/html/*.*`, // or any files in it
-        `!dev/html/**`,  // or any sub folders;
-        `!dev/img/`,     // ignore images;
-        `!dev/**/*.js`,  // ignore JS;
-        `!dev/styles/**` // and, ignore Sass/CSS.
-    ], {dot: true}).pipe(dest(`prod`));
-};
+
 
 let compressImages = () => {
-    return src(`dev/img/**/*`)
+    return src(`img/**/*`)
         .pipe(cache(
             imageCompressor({
                 optimizationLevel: 3, // For PNG files. Accepts 0 – 7; 3 is default.
@@ -144,26 +116,25 @@ let serve = () => {
         browser: browserChoice,
         server: {
             baseDir: [
-                `temp`,
-                `dev`,
-                `dev/html`
+                `./temp/`,
+                `./html/`
             ]
         }
     });
 
-    watch(`dev/scripts/*.js`,
+    watch(`js/*.js`,
         series(lintJS, transpileJSForDev)
     ).on(`change`, reload);
 
-    watch(`dev/styles/main.css`,
+    watch(`css/*.css`,
         series(lintCSS)
     ).on(`change`, reload);
 
-    watch(`dev/html/**/*.html`,
+    watch(`html/**/*.html`,
         series(validateHTML)
     ).on(`change`, reload);
 
-    watch(`dev/img/**/*`).on(`change`, reload);
+    watch(`img/**/*`).on(`change`, reload);
 };
 
 async function clean() {
@@ -220,13 +191,11 @@ exports.compressCSS = compressCSS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
-exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.build = series(
     compressHTML,
     compressCSS,
     transpileJSForProd,
     compressImages,
-    copyUnprocessedAssetsForProd
 );
 exports.compressImages = compressImages;
 exports.dev = series(lintCSS, lintJS, transpileJSForDev, validateHTML, serve);
